@@ -5,8 +5,6 @@
 
 <h1>Tasks List</h1>
 
-<a href="/add/" class="add-btn">+ Add New Task</a>
-
 <table>
     <tr>
         <th>Title</th>
@@ -23,6 +21,7 @@
         <td>{{ task.title }}</td>
         <td>{{ task.priority }}</td>
         <td>{{ task.task_type }}</td>
+
         <td>
             {% if task.task_type == "Specific" %}
                 {{ task.due_date }}
@@ -30,17 +29,24 @@
                 —
             {% endif %}
         </td>
+
         <td>{{ task.due_time }}</td>
-        <td>{{ task.status }}</td>
+
+        <td>
+            {% if task.status == "Completed" %}
+                <span class="status-done">Completed ✓</span>
+            {% else %}
+                Pending
+            {% endif %}
+        </td>
+
         <td>
             <a href="/details/{{ task.id }}/" class="action-link">View</a>
             <a href="/edit/{{ task.id }}/" class="action-link">Edit</a>
             <a href="/delete/{{ task.id }}/" class="delete-link">Delete</a>
 
             {% if task.status == "Pending" %}
-                <a href="/complete/{{ task.id }}/" class="action-link">Complete ✔</a>
-            {% else %}
-                <span class="status-done">Completed ✓</span>
+                <a href="/complete/{{ task.id }}/" class="action-link">Mark Complete</a>
             {% endif %}
         </td>
     </tr>
@@ -50,5 +56,7 @@
     </tr>
     {% endfor %}
 </table>
+
+<a href="/add/" class="add-btn">+ Add New Task</a>
 
 {% endblock %}
