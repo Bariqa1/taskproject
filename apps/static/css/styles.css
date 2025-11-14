@@ -3,10 +3,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: #fcf8f9;
+    background: #F7FAFC;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    
+
     /* Sticky Footer Setup */
     display: flex;
     flex-direction: column;
@@ -14,23 +14,23 @@ body {
 }
 
 .status-done {
-    color: #0a8f34;
+    color: #38A169;
     font-weight: bold;
 }
 
 /* Form Styling */
 form label {
     font-weight: 600;
-    color: #4b0082;
+    color: #6B46C1;
 }
 
-form input, 
+form input,
 form textarea,
 form select {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 2px solid #eadaff;
+    border: 2px solid #E2E8F0;
     border-radius: 10px;
     font-size: 1rem;
     transition: border-color 0.2s ease;
@@ -39,14 +39,15 @@ form select {
 form input:focus,
 form textarea:focus,
 form select:focus {
-    border-color: #c77dff;
+    border-color: #6B46C1;
     outline: none;
-    box-shadow: 0 0 4px #d6b3ff;
+    box-shadow: 0 0 4px #C4B5FD;
 }
+
 /* ===== Links Styling ===== */
 
 a {
-    color: #4b0082;
+    color: #6B46C1;
     font-weight: bold;
     text-decoration: none;
     padding: 8px 12px;
@@ -55,15 +56,15 @@ a {
 }
 
 a:hover {
-    color: #ff69b4;
-    background: #fce1f1;
+    color: #4C1D95;
+    background: #EDE9FE;
 }
 
-/* Special link for "Add New Task" button-like */
+/* Button-like Add Task */
 a.add-btn {
-    background: #ffb6c1;
-    color: #4b0082;
-    border: 2px solid #ff69b4;
+    background: #6B46C1;
+    color: white;
+    border: 2px solid #805AD5;
     padding: 10px 18px;
     display: inline-block;
     border-radius: 20px;
@@ -71,34 +72,33 @@ a.add-btn {
 }
 
 a.add-btn:hover {
-    background: #ff69b4;
-    color: white;
+    background: #805AD5;
 }
 
 /* Action Links inside tables */
 .action-link {
     padding: 5px 10px;
-    background: #e8d9ff;
+    background: #EDE9FE;
+    color: #4C1D95;
     border-radius: 8px;
     margin-right: 6px;
     display: inline-block;
 }
 
 .action-link:hover {
-    background: #d0b3ff;
-    color: #4b0082;
+    background: #D6BCFA;
 }
 
 /* Delete link special style */
 a.delete-link {
     color: white;
-    background: #ff4d4d;
+    background: #E53E3E;
     padding: 5px 10px;
     border-radius: 8px;
 }
 
 a.delete-link:hover {
-    background: #c62828;
+    background: #C53030;
 }
 
 /* Container */
@@ -109,59 +109,56 @@ a.delete-link:hover {
     padding: 30px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
     /* Allows content area to push footer down */
     flex-grow: 1;
 }
 
 /* ===== Header ===== */
 header {
-    background: #e6e6fa;
+    background: #F3F4F6;
     padding: 20px 0;
     text-align: center;
     border-radius: 10px 10px 0 0;
 }
 
 header nav a {
-    color: #4b0082;
+    color: #6B46C1;
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: 0.3s ease;
 }
 
 header nav a:hover {
-    color: #ff69b4;
-    text-decoration: none;
+    color: #4C1D95;
 }
 
 /* ===== Buttons ===== */
 button {
-    background: #ffb6c1;
-    color: #4b0082;
+    background: #6B46C1;
+    color: white;
     padding: 10px 20px;
-    border: 2px solid #ff69b4;
+    border: 2px solid #805AD5;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: 0.3s ease;
 }
 
 button:hover {
-    background: #ff69b4;
-    color: white;
-    transform: translateY(-2px);
+    background: #805AD5;
 }
 
 button.delete {
-    background: #ff7f7f;
-    border-color: #ff4d4d;
+    background: #E53E3E;
+    border-color: #C53030;
     color: white;
 }
 
 button.delete:hover {
-    background: #ff4d4d;
+    background: #C53030;
 }
 
 /* ===== Tables ===== */
@@ -178,26 +175,26 @@ table {
 
 table th, table td {
     padding: 12px;
-    border-bottom: 1px solid #f0eef3;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 table th {
-    background: #f0f0ff;
-    color: #4b0082;
+    background: #E5E7EB;
+    color: #4C1D95;
     text-align: left;
     font-weight: 600;
 }
 
 table tr:nth-child(even) {
-    background-color: #fafafa;
+    background-color: #F9FAFB;
 }
 
 /* ===== Footer ===== */
 footer {
-    background: #d8bfd8;
-    color: #4b0082;
+    background: #F3F4F6;
+    color: #4C1D95;
     text-align: center;
-    padding: 35px; 
+    padding: 35px;
     margin-top: 50px;
     border-radius: 0 0 10px 10px;
     font-size: 0.9em;
