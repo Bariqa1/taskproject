@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Delete Task{% endblock %}
+
+{% block content %}
+<h1 style="color:#c62828;">Delete Task</h1>
+
+<p>Are you sure you want to delete this task?</p>
+
+<div style="padding:15px; border:1px solid #f3d1d1; background:#fff5f5; border-radius:8px;">
+    <p><strong>Title:</strong> {{ task.title }}</p>
+    <p><strong>Priority:</strong> {{ task.priority }}</p>
+    <p><strong>Status:</strong> {{ task.status }}</p>
+</div>
+
+<br>
+
+<form method="POST">
+    {% csrf_token %}
+    <button class="delete">Yes, Delete</button>
+    <a href="/details/{{ task.id }}/" class="action-link">Cancel</a>
+</form>
+
+{% endblock %}
