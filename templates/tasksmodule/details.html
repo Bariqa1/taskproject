@@ -1,5 +1,4 @@
 {% extends "layouts/base.html" %}
-
 {% block title %}Task Details{% endblock %}
 
 {% block content %}
@@ -8,14 +7,22 @@
 <p><strong>Title:</strong> {{ task.title }}</p>
 <p><strong>Description:</strong> {{ task.description }}</p>
 <p><strong>Priority:</strong> {{ task.priority }}</p>
-<p><strong>Due Date:</strong> {{ task.due_date }}</p>
 <p><strong>Status:</strong> {{ task.status }}</p>
+<p><strong>Task Type:</strong> {{ task.task_type }}</p>
 
-<br>
+{% if task.task_type == "Specific" %}
+<p><strong>Due Date:</strong> {{ task.due_date }}</p>
+{% endif %}
+
+<p><strong>Due Time:</strong> {{ task.due_time }}</p>
 
 <a href="/edit/{{ task.id }}/" class="action-link">Edit</a>
 <a href="/delete/{{ task.id }}/" class="delete-link">Delete</a>
-<a href="/" class="action-link">Back</a>
 
+{% if task.status == "Pending" %}
+    <a href="/complete/{{ task.id }}/" class="action-link">Complete ✔</a>
+{% else %}
+    <span class="status-done">Completed ✓</span>
+{% endif %}
 
 {% endblock %}

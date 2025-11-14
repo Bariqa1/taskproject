@@ -1,5 +1,4 @@
 {% extends "layouts/base.html" %}
-
 {% block title %}Edit Task{% endblock %}
 
 {% block content %}
@@ -12,7 +11,7 @@
     <input type="text" name="title" value="{{ task.title }}" required>
 
     <label>Description</label>
-    <textarea name="description">{{ task.description }}</textarea>
+    <textarea name="description" required>{{ task.description }}</textarea>
 
     <label>Priority</label>
     <select name="priority">
@@ -21,8 +20,21 @@
         <option value="Low" {% if task.priority == "Low" %}selected{% endif %}>Low</option>
     </select>
 
-    <label>Due Date</label>
-    <input type="date" name="due_date" value="{{ task.due_date }}" required>
+    <label>Task Type</label>
+    <select name="task_type" onchange="toggleDate(this.value)">
+        <option value="Daily" {% if task.task_type == "Daily" %}selected{% endif %}>Daily</option>
+        <option value="Weekly" {% if task.task_type == "Weekly" %}selected{% endif %}>Weekly</option>
+        <option value="Monthly" {% if task.task_type == "Monthly" %}selected{% endif %}>Monthly</option>
+        <option value="Specific" {% if task.task_type == "Specific" %}selected{% endif %}>Specific Date</option>
+    </select>
+
+    <div id="date-field" style="{% if task.task_type == 'Specific' %}display:block{% else %}display:none{% endif %};">
+        <label>Due Date</label>
+        <input type="date" name="due_date" value="{{ task.due_date }}">
+    </div>
+
+    <label>Due Time</label>
+    <input type="time" name="due_time" value="{{ task.due_time }}">
 
     <label>Status</label>
     <select name="status">
@@ -30,7 +42,14 @@
         <option value="Completed" {% if task.status == "Completed" %}selected{% endif %}>Completed</option>
     </select>
 
-    <button type="submit">Update Task</button>
+    <button type="submit">Save Changes</button>
 </form>
+
+<script>
+function toggleDate(value) {
+    document.getElementById("date-field").style.display =
+        value === 'Specific' ? 'block' : 'none';
+}
+</script>
 
 {% endblock %}

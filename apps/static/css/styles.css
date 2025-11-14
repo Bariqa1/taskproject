@@ -13,6 +13,11 @@ body {
     min-height: 100vh;
 }
 
+.status-done {
+    color: #0a8f34;
+    font-weight: bold;
+}
+
 /* Form Styling */
 form label {
     font-weight: 600;
