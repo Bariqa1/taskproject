@@ -40,16 +40,24 @@ def edit_task(request, id):
     task = get_object_or_404(Task, id=id)
 
     if request.method == 'POST':
-        task.title = request.POST['title']
-        task.description = request.POST['description']
-        task.priority = request.POST['priority']
-        task.due_date = request.POST['due_date']
-        task.status = request.POST['status']
+        task.title = request.POST.get('title')
+        task.description = request.POST.get('description')
+        task.priority = request.POST.get('priority')
+        task.status = request.POST.get('status')
+        task.task_type = request.POST.get('task_type')
+        task.due_time = request.POST.get('due_time')
+
+        if request.POST.get('task_type') == 'Specific':
+            task.due_date = request.POST.get('due_date')
+        else:
+            task.due_date = None 
+
         task.save()
-        
-        return redirect('task_list')
+
+        return redirect('task_list') 
 
     return render(request, 'tasksmodule/edit.html', {'task': task})
+
 
 def task_details(request, id):
     task = get_object_or_404(Task, id=id)
